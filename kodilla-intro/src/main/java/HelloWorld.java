@@ -4,5 +4,7 @@ public class HelloWorld {
         System.out.println("Wojtek");
         System.out.println("56");
         System.out.println("K");
+        String invitation = "Hello from FirstClass!";
+        System.out.println(invitation);
     }
 }
