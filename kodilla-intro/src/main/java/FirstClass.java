@@ -26,5 +26,33 @@ public class FirstClass {
         notebook3.checkPriceAndYear();
         Notebook notebook4 = new Notebook(500, 800, 2010);
         notebook4.checkPriceAndYear();
+
+        testGrades();
+    }
+
+    public static void testGrades(){
+        Grade grade = new Grade();
+        grade.add(3);
+        System.out.println("Added: 3, Last grade: " + grade.getLastGrade() + " Avg: " + grade.getAverageGrade());
+        grade.add(5);
+        System.out.println("Added: 5, Last grade: " + grade.getLastGrade() + " Avg: " + grade.getAverageGrade());
+        grade.add(4);
+        System.out.println("Added: 4, Last grade: " + grade.getLastGrade() + " Avg: " + grade.getAverageGrade());
+        grade.add(2);System.out.println("Last grade: " + grade.getLastGrade() + " Avg: " + grade.getAverageGrade());
+        System.out.println("Added: 2, Last grade: " + grade.getLastGrade() + " Avg: " + grade.getAverageGrade());
+        grade.add(1);
+        System.out.println("Added: 1, Last grade: " + grade.getLastGrade() + " Avg: " + grade.getAverageGrade());
+        grade.add(4);
+        System.out.println("Added: 4, Last grade: " + grade.getLastGrade() + " Avg: " + grade.getAverageGrade());
+        grade.add(3);
+        System.out.println("Added: 3, Last grade: " + grade.getLastGrade() + " Avg: " + grade.getAverageGrade());
+        grade.add(5);
+        System.out.println("Added: 5, Last grade: " + grade.getLastGrade() + " Avg: " + grade.getAverageGrade());
+        grade.add(2);
+        System.out.println("Added: 2, Last grade: " + grade.getLastGrade() + " Avg: " + grade.getAverageGrade());
+        grade.add(3);
+        System.out.println("Added: 3, Last grade: " + grade.getLastGrade() + " Avg: " + grade.getAverageGrade());
+        grade.add(7);
+        System.out.println("Added: 7, Last grade: " + grade.getLastGrade() + " Avg: " + grade.getAverageGrade());
     }
 }
