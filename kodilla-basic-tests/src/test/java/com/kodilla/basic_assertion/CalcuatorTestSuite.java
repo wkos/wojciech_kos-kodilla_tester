@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CalcuatorTestSuite {
+    //czy mam przepisać te metody na double? nie widzę dla tego zadania potrzeby porównywania liczb rzeczywistych,
+    //chyba że coś mi umknęło
     @Test
     public void testAdd(){
         Calculator calculator = new Calculator();
