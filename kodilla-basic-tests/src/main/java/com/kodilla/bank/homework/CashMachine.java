@@ -29,6 +29,26 @@ public class CashMachine {
         transactions = newTable;
     }
 
+    public double deposits(){
+        double sum = 0;
+        for(int i = 0; i < transactions.length; i++){
+            if(transactions[i] > 0){
+                sum += transactions[i];
+            }
+        }
+        return sum;
+    }
+
+    public int numberOfDeposits(){
+        int count = 0;
+        for (int i = 0; i < transactions.length; i++) {
+            if(transactions[i] > 0){
+                count++;
+            }
+        }
+        return count;
+    }
+
     public void withdraw(double value){
         if(value <= balance()) {
             numberOfTransactions++;
@@ -41,8 +61,24 @@ public class CashMachine {
         }
     }
 
-    public double[] getTransactions() {
-        return transactions;
+    public double withdrawals(){
+        double sum = 0;
+        for(int i = 0; i < transactions.length; i++){
+            if(transactions[i] < 0){
+                sum += transactions[i];
+            }
+        }
+        return -sum;
+    }
+
+    public int numberOfWithdrawals(){
+        int count = 0;
+        for (int i = 0; i < transactions.length; i++) {
+            if(transactions[i] < 0){
+                count++;
+            }
+        }
+        return count;
     }
 
     public boolean canWithdraw(double value){

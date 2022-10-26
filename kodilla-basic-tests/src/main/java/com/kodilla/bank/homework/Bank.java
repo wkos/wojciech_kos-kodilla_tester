@@ -28,11 +28,7 @@ public class Bank {
     public int numberOfWithdrawals() {
         int count = 0;
         for (CashMachine cashMachine : cashMachines) {
-            for (double operation : cashMachine.getTransactions()) {
-                if (operation < 0) {
-                    count++;
-                }
-            }
+            count += cashMachine.numberOfWithdrawals();
         }
         return count;
     }
@@ -40,37 +36,40 @@ public class Bank {
     public int numberOfDeposits() {
         int count = 0;
         for (CashMachine cashMachine : cashMachines) {
-            for (double operation : cashMachine.getTransactions()) {
-                if (operation > 0) {
-                    count++;
-                }
-            }
+            count += cashMachine.numberOfDeposits();
         }
         return count;
     }
 
-    public double withdrawalAverage() {
+    public double withdrawals() {
         double sum = 0;
         for (CashMachine cashMachine : cashMachines) {
-            for (double operation : cashMachine.getTransactions()) {
-                if (operation < 0) {
-                    sum += operation;
-                }
-            }
+            sum += cashMachine.withdrawals();
         }
-        return -sum / numberOfWithdrawals();
+        return sum;
     }
 
-    public double depositAverage() {
+    public double withdrawalAverage() {
+        int count = 0;
+        for (CashMachine cashMachine : cashMachines) {
+            count += cashMachine.numberOfWithdrawals();
+        }
+        return withdrawals() / count;
+    }
+
+    public double deposits() {
         double sum = 0;
         for (CashMachine cashMachine : cashMachines) {
-            for (double operation : cashMachine.getTransactions()) {
-                if (operation > 0) {
-                    sum += operation;
-                }
-            }
+            sum += cashMachine.deposits();
         }
-        return sum / numberOfDeposits();
+        return sum;
+    }
+    public double depositAverage() {
+        int count = 0;
+        for (CashMachine cashMachine : cashMachines) {
+            count += cashMachine.numberOfDeposits();
+        }
+        return deposits() / numberOfDeposits();
     }
 
     public int getNumberOfCashMachines() {

@@ -11,6 +11,30 @@ public class BankTestSuite {
     CashMachine cashMachineThree = new CashMachine();
 
     @Test
+    public void shouldReturnZeroWhenNoCashMachinesAdded(){
+        int numberOfCashMachines = bank.getNumberOfCashMachines();
+        assertEquals(0, numberOfCashMachines);
+    }
+
+    @Test
+    public void shouldReturnZeroBalanceWhenNoCashMachinesAdded(){
+        double balance = bank.cashMachinesBalance();
+        assertEquals(0, balance);
+    }
+
+    @Test
+    public void shouldReturnZeroValueOfWithdrawalsWhenNoCashMachinesAdded(){
+        double withdrawals = bank.withdrawals();
+        assertEquals(0, withdrawals);
+    }
+
+    @Test
+    public void shouldReturnZeroValueOfDepositsWhenNoCashMachinesAdded(){
+        double deposits = bank.deposits();
+        assertEquals(0, deposits);
+    }
+
+    @Test
     public void shouldReturnOneWhenOneCashMachineAdded(){
         cashMachineOne.deposit(1000);
         cashMachineOne.deposit(1500);
@@ -43,7 +67,7 @@ public class BankTestSuite {
     }
 
     @Test
-    public void shouldReturnProperBalanceForTwoCashMachine(){
+    public void shouldReturnProperBalanceForTwoCashMachines(){
         cashMachineOne.deposit(1000);
         cashMachineOne.deposit(1500);
         cashMachineOne.withdraw(1000);
