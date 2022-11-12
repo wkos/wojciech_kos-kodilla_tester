@@ -19,6 +19,10 @@ public class Saab implements Car{
         speed += SAAB_SPEED_INCREASE;
     }
 
+    public void increaseSpeedBy(int amountOfIncrease){
+        speed += amountOfIncrease;
+    }
+
     @Override
     public void decreaseSpeed() {
         speed -= SAAB_SPEED_DECREASE;

@@ -19,6 +19,10 @@ public class Ford implements Car{
         speed += FORD_SPEED_INCREASE;
     }
 
+    public void increaseSpeedBy(int amountOfIncrease){
+        speed += amountOfIncrease;
+    }
+
     @Override
     public void decreaseSpeed() {
         speed -= FORD_SPEED_DECREASE;

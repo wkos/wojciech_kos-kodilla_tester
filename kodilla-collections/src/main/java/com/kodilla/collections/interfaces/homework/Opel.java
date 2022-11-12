@@ -19,6 +19,10 @@ public class Opel implements Car{
         speed += OPEL_SPEED_INCREASE;
     }
 
+    public void increaseSpeedBy(int amountOfIncrease){
+        speed += amountOfIncrease;
+    }
+
     @Override
     public void decreaseSpeed() {
         speed -= OPEL_SPEED_DECREASE;
