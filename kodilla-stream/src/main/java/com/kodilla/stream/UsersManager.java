@@ -1,22 +1,23 @@
 package com.kodilla.stream;
 
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class UsersManager {
     public static void main(String[] args) {
         processUsersStream();
 
-        List<String> chemistGroupUsernames = filterChemistGroupUsernames();
+        Set<String> chemistGroupUsernames = filterChemistGroupUsernames();
         System.out.println(chemistGroupUsernames);
     }
 
-    private static List<String> filterChemistGroupUsernames() {
-        List<String> usernames = UsersRepository.getUserList()
+    public static Set<String> filterChemistGroupUsernames() {
+        Set<String> usernames = UsersRepository.getUserList()
                 .stream()
                 .filter(user -> user.getGroup().equals("Chemists"))
                 .map(UsersManager::getUsername)
-                .collect(Collectors.toList());
+                .collect(Collectors.toSet());
         return usernames;
     }
 
@@ -30,5 +31,20 @@ public class UsersManager {
 
     public static String getUsername(User user){
         return user.getUsername();
+    }
+
+    public static Set<User> filterUsersOlderThanGivenAge(int age){
+        return UsersRepository.getUserList()
+                .stream()
+                .filter(user -> user.getAge() > age)
+                .collect(Collectors.toSet());
+    }
+
+    public static Set<String> filterUsersWithNumberOfPostsBetweenMinAndMax(int minNumberOfPosts, int maxNumberOfPosts){
+        return UsersRepository.getUserList()
+                .stream()
+                .filter(user -> user.getNumberOfPosts() > minNumberOfPosts && user.getNumberOfPosts() < maxNumberOfPosts)
+                .map(User::getUsername)
+                .collect(Collectors.toSet());
     }
 }
