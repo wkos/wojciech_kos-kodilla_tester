@@ -137,4 +137,14 @@ public class WeatherServiceTestSuite {
         }
         Mockito.verify(client1, Mockito.times(3)).receiveMessage(message);
     }
+
+    @Test
+    public void removingSubscriptionFromLocationNotPresentInMapShouldPass(){
+        weatherService.removeSubscriptionFromClient(client1, location4);
+    }
+
+    @Test
+    public void removingSubscriptionFromClientWithoutLocationShouldPass(){
+        weatherService.removeSubscriptionFromClient(client2, location3);
+    }
 }
