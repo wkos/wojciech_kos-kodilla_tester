@@ -16,6 +16,7 @@ public class WeatherService {
             }
         }
         clientSet.stream().forEach(cl -> cl.receiveMessage(message));
+        //kolekcja setów i flatmap na tym this.clients.values. clinteset.addall
     }
 
     ;
@@ -35,6 +36,7 @@ public class WeatherService {
         }
         clientsInLocation.add(client);
         this.clients.put(location, clientsInLocation);
+        //this.clients.getOrDefault(locationa, wartość domyślna);
     }
 
     public void removeSubscriber(Client client) {
