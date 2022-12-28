@@ -21,6 +21,6 @@ public class SimpleApplicationTestSuite {
         ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring.basic");
         SimpleApplication bean = context.getBean(SimpleApplication.class);
         String message = bean.processMessage("Test", "Any receiver");
-        Assertions.assertEquals("Sending [Test] to: Any receiver using Skype", message);
+        Assertions.assertEquals("Sending Test] to: Any receiver using Skype", message);
     }
 }
