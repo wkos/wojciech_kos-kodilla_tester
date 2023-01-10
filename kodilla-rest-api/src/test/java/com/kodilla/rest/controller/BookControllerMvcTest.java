@@ -56,6 +56,6 @@ public class BookControllerMvcTest {
                         .accept(MediaType.APPLICATION_JSON)
                 )
                 .andExpect(MockMvcResultMatchers.status().isOk());
-        Mockito.verify(bookService).addBook(bookDto);
+        Mockito.verify(bookService, Mockito.times(1)).addBook(bookDto);
     }
 }
