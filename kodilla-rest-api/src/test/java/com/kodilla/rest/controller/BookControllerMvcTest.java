@@ -53,7 +53,7 @@ public class BookControllerMvcTest {
         mockMvc.perform(MockMvcRequestBuilders.post("/books")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(jsonObject)
-                        .accept(MediaType.APPLICATION_JSON)
+//                        .accept(MediaType.APPLICATION_JSON)
                 )
                 .andExpect(MockMvcResultMatchers.status().isOk());
         Mockito.verify(bookService, Mockito.times(1)).addBook(bookDto);

@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 class BookControllerTestSuite {
     @Test
@@ -37,6 +36,6 @@ class BookControllerTestSuite {
         BookDto bookDto = new BookDto("Title", "Author");
         bookController.addBook(bookDto);
         //given
-        Mockito.verify(bookServiceMock).addBook(bookDto);
+        Mockito.verify(bookServiceMock, Mockito.times(1)).addBook(bookDto);
     }
 }
