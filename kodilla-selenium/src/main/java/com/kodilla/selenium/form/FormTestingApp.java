@@ -1,4 +1,4 @@
-package com.kodilla.selenium;
+package com.kodilla.selenium.form;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
