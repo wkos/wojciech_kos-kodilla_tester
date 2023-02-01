@@ -12,17 +12,24 @@ public class AllegroTestingApp {
         WebDriver driver = new ChromeDriver();
         driver.get("https://allegro.pl");
 
-        WebElement cookieElement = driver.findElement(By.xpath("//button[@data-role=\"accept-consent\"]"));
+        Thread.sleep(1000);
+        WebElement cookieElement = driver.findElement(By.className("msts_enp"));
         cookieElement.click();
 
-        WebElement categoryElement = driver.findElement(By.xpath("//div[@class=\"mp7g_oh mr3m_1 s4kyg\"]/select"));
+        Thread.sleep(4000);
+        WebElement categoryElement = driver.findElement(By.tagName("select"));
         Select categorySelect = new Select(categoryElement);
+        Thread.sleep(2000);
         categorySelect.selectByValue("/kategoria/elektronika");
 
-        WebElement inputElement = driver.findElement(By.xpath("//input[@name=\"string\"]"));
+        Thread.sleep(2000);
+        WebElement inputElement = driver.findElement(By.tagName("input"));
+        Thread.sleep(2000);
         inputElement.sendKeys("Mavic mini");
 
-        WebElement searchButton = driver.findElement(By.xpath("//button[@data-role=\"search-button\"]"));
-        searchButton.submit();
+        Thread.sleep(2000);
+        WebElement searchButton = driver.findElement(By.cssSelector("form > button"));
+        Thread.sleep(2000);
+        searchButton.click();
     }
 }
