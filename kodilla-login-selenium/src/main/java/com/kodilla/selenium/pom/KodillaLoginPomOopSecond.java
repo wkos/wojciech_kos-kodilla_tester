@@ -22,7 +22,7 @@ public class KodillaLoginPomOopSecond extends AbstractPom{
         PageFactory.initElements(driver, this);
     }
 
-    public boolean login(String email, String password) {
+    public boolean login(String email, String password) throws InterruptedException {
         emailField.sendKeys(email);
         passwordField.sendKeys(password);
         loginButton.click();
@@ -30,7 +30,7 @@ public class KodillaLoginPomOopSecond extends AbstractPom{
         String messsage = alert.getText();
         alert.dismiss();
 
-        String alertText = "Jesteś teraz zalogowany!";
+        String alertText = "Jeste" + "\u015B" + " teraz zalogowany!";
         return messsage.equals(alertText);
     }
 

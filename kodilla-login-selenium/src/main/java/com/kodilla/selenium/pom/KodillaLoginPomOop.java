@@ -34,12 +34,8 @@ public class KodillaLoginPomOop {
         System.out.println(messsage);
         driver.switchTo().alert().dismiss();
 
-        String alertText = "Jesteś teraz zalogowany!";
+        String alertText = "Jeste" + "\u015B" + " teraz zalogowany!";
         System.out.println(alertText);
-//        byte[] bytes = alertText.getBytes(StandardCharsets.UTF_16);
-//        String utf8EncodedAlertText = new String(bytes, StandardCharsets.UTF_16);
-//        System.out.println(utf8EncodedAlertText);
-//        System.out.println(messsage.equals(utf8EncodedAlertText));
         return alertText.equals(messsage);
     }
 

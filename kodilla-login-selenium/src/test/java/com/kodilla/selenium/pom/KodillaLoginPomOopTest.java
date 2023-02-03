@@ -22,7 +22,6 @@ class KodillaLoginPomOopTest {
         String email = "user@toniedziala.pl";
         String password = "password";
         boolean loggedIn = loginPomOop.login(email, password);
-        System.out.println(loggedIn);
         assertFalse(loggedIn);
     }
 
@@ -31,7 +30,6 @@ class KodillaLoginPomOopTest {
         String email = "test@kodilla.com";
         String password = "kodilla123";
         boolean loggedIn = loginPomOop.login(email, password);
-        System.out.println(loggedIn);
         assertTrue(loggedIn);
     }
 }

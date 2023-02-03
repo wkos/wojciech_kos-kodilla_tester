@@ -22,7 +22,7 @@ class KodillaLoginPomOopSecondTest {
     }
 
     @Test
-    public void testLoginPage_CheckErrorValidation() {
+    public void testLoginPage_CheckErrorValidation() throws InterruptedException {
         String email = "test@toniedziala.pl";
         String password = "password";
         boolean loggedIn = loginPom.login(email, password);
@@ -30,7 +30,7 @@ class KodillaLoginPomOopSecondTest {
     }
 
     @Test
-    public void testLoginPage_CheckPositiveValidation() {
+    public void testLoginPage_CheckPositiveValidation() throws InterruptedException {
         String email = "test@kodilla.com";
         String password = "kodilla123";
         boolean loggedIn = loginPom.login(email, password);
