@@ -4,8 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
@@ -29,9 +27,10 @@ public class EbayTestingApp {
         inputField = driver.findElement(By.id("gh-btn"));
         inputField.submit();
 
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.className("s-item__image-section")));
+//        WebDriverWait wait = new WebDriverWait(driver, 10);
+//        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.className("s-item__image-section")));
 
+        Thread.sleep(3000);
         List<WebElement> cardElements = driver.findElements(By.className("s-item__info"));
         for(WebElement element : cardElements){
             System.out.println(element.getText());
