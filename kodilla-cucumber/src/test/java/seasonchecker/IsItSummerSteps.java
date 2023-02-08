@@ -28,6 +28,7 @@ public class IsItSummerSteps {
     public void today_is_10th_day_of_february(){
         this.today = MonthDay.of(2, 10);
     }
+
     @When("I ask whether it's Summer")
     public void i_ask_whether_it_s_summer() {
         // Write code here that turns the phrase above into concrete actions
