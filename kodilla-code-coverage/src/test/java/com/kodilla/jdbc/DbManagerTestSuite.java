@@ -70,6 +70,44 @@ class DbManagerTestSuite {
         statement.close();
     }
 
+    @Test
+    void testSelectUsersAndPosts() throws SQLException {
+        //Given
+        String countQuery = "SELECT COUNT(*) FROM USERS";
+        Statement statement = createStatement();
+        ResultSet rs = statement.executeQuery(countQuery);
+        int count = getRowsCount(rs);
+        insertUsers(statement);
+        int postsId = count + 5;
+
+        countQuery = "select count(*) from " + "(select count(*) " +
+                "from users " +
+                "join posts on users.id = posts.user_id " +
+                "group by user_id " +
+                "having count(posts.user_id) >= 2) s";
+        statement = createStatement();
+        rs = statement.executeQuery(countQuery);
+        int oldCount = getRowsCount(rs);
+        insertPosts(statement, postsId);
+
+        //When
+        String sqlQuery = "select firstname, lastname " +
+                "from users " +
+                "join posts on users.id = posts.user_id " +
+                "group by user_id " +
+                "having count(posts.user_id) >= 2";
+        statement = createStatement();
+        rs = statement.executeQuery(sqlQuery);
+        //Then
+        int resultCount = getRowsCountFromQuery(rs);
+        int expected = oldCount + 1;
+        showQueryResult(rs);
+        Assertions.assertEquals(expected, resultCount);
+
+        rs.close();
+        statement.close();
+    }
+
     private Statement createStatement() throws SQLException {
         return dbManager.getConnection().createStatement();
     }
@@ -95,7 +133,7 @@ class DbManagerTestSuite {
 
     private static int getResultsCount(ResultSet rs) throws SQLException {
         int counter = 0;
-        while(rs.next()) {
+        while (rs.next()) {
             System.out.printf("%d, %s, %s%n",
                     rs.getInt("ID"),
                     rs.getString("FIRSTNAME"),
@@ -111,5 +149,34 @@ class DbManagerTestSuite {
             count = rs.getInt("COUNT(*)");
         }
         return count;
+    }
+
+    private static void showQueryResult(ResultSet rs) throws SQLException {
+        while (rs.next()) {
+            System.out.println(rs.getString("FIRSTNAME") + ", " + rs.getString("LASTNAME"));
+        }
+    }
+
+    private static int getRowsCountFromQuery(ResultSet rs) throws SQLException {
+        int counter = 0;
+        while (rs.next()) {
+            counter++;
+        }
+        return counter;
+    }
+
+    private void insertPosts(Statement statement, int id) throws SQLException {
+        statement.executeUpdate(
+                String.format("insert into posts(user_id, body) values ('%d', '%s')", id, "First extra post for user " + id
+                )
+        );
+        statement.executeUpdate(
+                String.format("insert into posts(user_id, body) values ('%d', '%s')", id, "Second extra post for user " + id
+                )
+        );
+        statement.executeUpdate(
+                String.format("insert into posts(user_id, body) values ('%d', '%s')", id, "Third extra post for user " + id
+                )
+        );
     }
 }
