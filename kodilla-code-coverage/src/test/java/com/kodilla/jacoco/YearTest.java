@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class YearTest {
+
     @Test
     void shouldBeLeapYearIfDivisibleBy400() {
         //given
@@ -14,6 +15,7 @@ class YearTest {
         //then
         assertTrue(isLeapYear);
     }
+
     @Test
     void shouldNotBeLeapYearIfNotDivisibleBy400AndDivisibleBy100And4() {
         //given

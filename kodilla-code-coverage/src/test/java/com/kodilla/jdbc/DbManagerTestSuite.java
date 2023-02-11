@@ -167,15 +167,18 @@ class DbManagerTestSuite {
 
     private void insertPosts(Statement statement, int id) throws SQLException {
         statement.executeUpdate(
-                String.format("insert into posts(user_id, body) values ('%d', '%s')", id, "First extra post for user " + id
+                String.format("insert into posts(user_id, body) values ('%d', '%s')",
+                        id, "First extra post for user " + id
                 )
         );
         statement.executeUpdate(
-                String.format("insert into posts(user_id, body) values ('%d', '%s')", id, "Second extra post for user " + id
+                String.format("insert into posts(user_id, body) values ('%d', '%s')",
+                        id, "Second extra post for user " + id
                 )
         );
         statement.executeUpdate(
-                String.format("insert into posts(user_id, body) values ('%d', '%s')", id, "Third extra post for user " + id
+                String.format("insert into posts(user_id, body) values ('%d', '%s')",
+                        id, "Third extra post for user " + id
                 )
         );
     }

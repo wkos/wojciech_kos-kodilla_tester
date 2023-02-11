@@ -24,7 +24,7 @@ class GoogleResultTest {
     }
 
     @Test
-    public void foundUrlShouldBeEqualsToCurrentUrl()  {
+    public void foundUrlShouldBeEqualsToCurrentUrl() throws InterruptedException {
         googleSearch = new GoogleSearch(driver);
         String foundUrl = googleSearch.goAndGetRandomUrl("Babulej i Babulejka");
 

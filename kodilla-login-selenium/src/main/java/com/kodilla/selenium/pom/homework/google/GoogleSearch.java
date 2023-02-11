@@ -21,8 +21,10 @@ public class GoogleSearch extends AbstractPom {
         PageFactory.initElements(driver, this);
     }
 
-    public String goAndGetRandomUrl(String phrase) {
+    public String goAndGetRandomUrl(String phrase) throws InterruptedException {
+        Thread.sleep(5000);
         findLinksWithPhrase(phrase);
+        Thread.sleep(5000);
         int index = drawIndex();
         WebElement elementFromList = foundElements.get(index);
         String url = elementFromList.getAttribute("href");
