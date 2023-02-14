@@ -1,5 +1,10 @@
 package com.kodilla;
 
-public class CodeCoverageApplication {
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+@SpringBootApplication
+public class CodeCoverageApplication {
+    public static void main(String[] args) {
+
+    }
 }
